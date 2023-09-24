@@ -1,7 +1,19 @@
+// import { useEffect } from 'react';
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
+import { Box } from '@mui/material';
+import Main from './components/main/Main';
 
 function App(): ReactJSXElement {
-  return <div className='App'></div>;
+  return (
+    <Box
+      sx={{
+        width: '90%',
+        margin: '0 auto',
+      }}
+    >
+      <Main />
+    </Box>
+  );
 }
 
-export { App };
+export default App;
