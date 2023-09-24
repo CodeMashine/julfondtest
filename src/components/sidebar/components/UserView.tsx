@@ -1,10 +1,26 @@
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
 import { ListItem, ListItemAvatar, Avatar, ListItemText, Typography } from '@mui/material';
-import { IUser } from '../types/interfaces';
+import { useAppDispatch } from '../../../store/hooks';
+import { setUserId } from '../../../slices/currentUserIdSlice';
+import { IUser } from '../../../types/interfaces';
 
 const UserView = (user: IUser): ReactJSXElement => {
+  const dispatch = useAppDispatch();
+
+  const chooseHandler = (pointer: number): void => {
+    dispatch(setUserId(pointer));
+  };
+
   return (
-    <ListItem alignItems='flex-start'>
+    <ListItem
+      sx={{
+        cursor: 'pointer',
+      }}
+      alignItems='flex-start'
+      onClick={(): void => {
+        chooseHandler(user.id);
+      }}
+    >
       <ListItemAvatar>
         <Avatar>{user.name[1]}</Avatar>
       </ListItemAvatar>

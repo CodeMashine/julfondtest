@@ -1,7 +1,7 @@
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
 import { Box, List, Typography, CircularProgress } from '@mui/material';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
-import UserView from '../../../utils/UserView';
+import { useAppSelector } from '../../../store/hooks';
+import UserView from './UserView';
 
 const ResultList = (): ReactJSXElement => {
   const { users, status } = useAppSelector((state) => state.users);
