@@ -1,21 +1,30 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import type { IUser } from '../types/interfaces';
+import type { IUsersList } from '../types/interfaces';
 
-type UsersList = IUser[];
+interface IUserState {
+  users: IUsersList;
+  status: boolean;
+}
 
-const initialState: UsersList = [];
+const initialState: IUserState = {
+  users: [],
+  status: false,
+};
 
 export const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
     setUsers: (state, action) => {
-      return action.payload;
+      state.users = action.payload;
+    },
+    toggleStatus: (state) => {
+      state.status = !state.status;
     },
   },
 });
 
-export const { setUsers } = usersSlice.actions;
+export const { setUsers, toggleStatus } = usersSlice.actions;
 
 export default usersSlice.reducer;

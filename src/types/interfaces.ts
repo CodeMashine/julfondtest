@@ -28,10 +28,12 @@ interface IUser {
   company: ICompany;
 }
 
+type IUsersList = IUser[];
+
 interface IStorage {
   users: IUser[];
   filterUsers: IUser[];
   setFilterUsers: React.Dispatch<React.SetStateAction<IUser[]>>;
 }
 
-export type { IUser, IStorage };
+export type { IUser, IStorage, IUsersList };
